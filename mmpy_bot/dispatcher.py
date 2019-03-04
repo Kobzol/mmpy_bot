@@ -81,6 +81,8 @@ class MessageDispatcher(object):
         msg['message_type'] = '?'
         if self.is_personal(msg):
             msg['message_type'] = 'D'
+        else:
+            return
 
         for func, args in self._plugins.get_plugins(category, text):
             if func:
